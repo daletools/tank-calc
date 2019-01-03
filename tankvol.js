@@ -25,11 +25,10 @@ var tkW = [265.9,0,0,0,0,60853];		//O5,O6
 var tkX = [68.91,0,0,252,8,5420];		//R1,R2
 var tkY = [37.17,0,0,0,0,1300];			//Stella Pan
 var tkZ = [56.60,0,0,162,2,3388];		//Mixer
-var tankname = [];
-console.log(tkA[0]);
+var tankname = [1,0,0,0,0,0];
 
 function gettankdown() {
-	var tk = document.getElementById("tank").value.toLowerCase;
+	var tk = document.getElementById("tank").value.toLowerCase();
 	switch(tk) {
 		case '1':
 		case '2':
@@ -40,7 +39,6 @@ function gettankdown() {
 		case '16':
 		case '18':
 		tankname = tkA.slice();
-		console.log(tankname[0]);
 		break;
 
 		case '7':
@@ -49,25 +47,25 @@ function gettankdown() {
 		case '13':
 		case '14':
 		case '15':
-		tankname = tkB;
+		tankname = tkB.slice();
 		break;
 
 		case '10':
 		case '12':
-		tankname = tkC;
+		tankname = tkC.slice();
 		break;
 
 		case '11':
 		case '31':
-		tankname = tkD;
+		tankname = tkD.slice();
 		break;
 		
 		case '17':
-		tankname = tkE;
+		tankname = tkE.slice();
 		break;
 		
 		case '19':
-		tankname = tkF;
+		tankname = tkF.slice();
 		break;
 		
 		case '20':
@@ -76,48 +74,48 @@ function gettankdown() {
 		case '24':
 		case '25':
 		case '26':
-		tankname = tkG;
+		tankname = tkG.slice();
 		break;
 		
 		case '27':
-		tankname = tkH;
+		tankname = tkH.slice();
 		break;
 		
 		case '28':
-		tankname = tkI;
+		tankname = tkI.slice();
 		break;
 		
 		case '29':
 		case '30':
-		tankname = tkJ;
+		tankname = tkJ.slice();
 		break;
 		
 		case '32':
 		case '33':
 		case '34':
 		case '35':
-		tankname = tkK;
+		tankname = tkK.slice();
 		break;
 		
 		case '36':
 		case '37':
-		tankname = tkL;
+		tankname = tkL.slice();
 		break;
 		
 		case '38':
 		case '39':
-		tankname = tkM;
+		tankname = tkM.slice();
 		break;
 		
 		case '40':
-		tankname = tkN;
+		tankname = tkN.slice();
 		break;
 		
 		case '41':
 		case '42':
 		case '43':
 		case '44':
-		tankname = tkO;
+		tankname = tkO.slice();
 		break;
 		
 		case '45':
@@ -126,12 +124,12 @@ function gettankdown() {
 		case '48':
 		case '49':
 		case '50':
-		tankname = tkP;
+		tankname = tkP.slice();
 		break;
 		
 		case '51':
 		case '52':
-		tankname = tkQ;
+		tankname = tkQ.slice();
 		break;
 		
 		case '53':
@@ -140,11 +138,11 @@ function gettankdown() {
 		case '56':
 		case '57':
 		case '58':
-		tankname = tkR;
+		tankname = tkR.slice();
 		break;
 		
 		case '59':
-		tankname = tkS;
+		tankname = tkS.slice();
 		break;
 		
 		case '60':
@@ -153,42 +151,41 @@ function gettankdown() {
 		case '63':
 		case '64':
 		case '65':
-		tankname = tkT;
+		tankname = tkT.slice();
 		break;
 		
-		case 'O1':
-		case 'O2':
-		tankname = tkU;
+		case 'o1':
+		case 'o2':
+		tankname = tkU.slice();
 		break;
 		
-		case 'O3':
-		case 'O4':
-		tankname = tkV;
+		case 'o3':
+		case 'o4':
+		tankname = tkV.slice();
 		break;
 		
-		case 'O5':
-		case 'O6':
-		tankname = tkW;
+		case 'o5':
+		case 'o6':
+		tankname = tkW.slice();
 		break;
 		
 		case 'R1':
 		case 'R2':
-		tankname = tkX;
+		tankname = tkX.slice();
 		break;
 		
 		case 'stella pan':
-		tankname = tkY;
+		tankname = tkY.slice();
 		break;
 		
 		case 'mixer':
-		tankname = tkZ;
+		tankname = tkZ.slice();
 		break;
 	};
 	calcdown();
 }
 function gettankup() {
 	var tk = document.getElementById("tank").value.toLowerCase;
-	var tankname = [0,0,0,0,0,0,0];
 	switch(tk) {
 		case '1':
 		case '2':
@@ -351,5 +348,8 @@ function calcdown(){
 	var b = tankname[3];
 	var bh = tankname[4];
 	var vm = tankname[5];
-	console.log(r);
+	var d = document.getElementById("d").value;
+	var v = vm - ((r * d) + t);
+	document.getElementById("volume").innerHTML = v;
+	document.getElementById("maxvolume").innerHTML = vm;
 }
